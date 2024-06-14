@@ -51,9 +51,6 @@ df = df.dropna(subset=lines_to_drop)
 # Clean the columns with too many missing values
 df = data_cleaner(df, drop_columns=columns_to_drop, fill_columns=columns_to_fill)
 
-data_viewer(df)
-zero_nan_viewer(df)
-
 # Fill the missing values (zeros) with the mean value of the same target class
 zero_filler_adv(df, fill_columns=["chol", "trestbps"], key=True)
 
