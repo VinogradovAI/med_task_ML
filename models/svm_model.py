@@ -11,8 +11,8 @@ class SVMModel:
     def train(self, X_train, y_train):
         """ Train the model with grid search cross validation"""
         param_grid = {
-            'C': [0.1, 1, 10, 100],
-            'gamma': [1, 0.1, 0.01, 0.001],
+            'C': [0.1, 0.5, 1, 5, 10, 20, 100],
+            'gamma': [1, 0.5, 0.1, 0.05, 0.01, 0.005, 0.001],
             'kernel': ['rbf', 'linear', 'poly'],
         }
         grid_search = GridSearchCV(estimator=self.model, param_grid=param_grid, cv=3, scoring='accuracy', verbose=1, n_jobs=-1)

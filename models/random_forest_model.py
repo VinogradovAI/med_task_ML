@@ -11,10 +11,10 @@ class RandomForestModel:
     def train(self, X_train, y_train):
         """ Train the model with grid search cross validation"""
         param_grid = {
-            'n_estimators': [100, 200, 300],
-            'max_depth': [3, 5, 7],
-            'min_samples_split': [2, 5, 10],
-            'min_samples_leaf': [1, 2, 4],
+            'n_estimators': [100, 150, 200, 250, 300],
+            'max_depth': [3, 4, 5, 6, 7],
+            'min_samples_split': [2, 3, 4, 5, 6, 8, 10],
+            'min_samples_leaf': [1, 2, 3, 4],
         }
         grid_search = GridSearchCV(estimator=self.model, param_grid=param_grid, cv=3, scoring='accuracy', verbose=1, n_jobs=-1)
         grid_search.fit(X_train, y_train)

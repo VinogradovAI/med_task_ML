@@ -1,7 +1,7 @@
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV
-import pandas as pd
+
 import numpy as np
 
 class GradientBoostingModel:
@@ -15,9 +15,9 @@ class GradientBoostingModel:
 
         # Define the parameter grid
         param_grid = {
-            'n_estimators': [100, 200, 300],
-            'learning_rate': [0.01, 0.1, 1],
-            'max_depth': [3, 5, 7],
+            'n_estimators': [100, 150, 200, 250, 300],
+            'learning_rate': [0.01, 0.05, 0.1, 0.2, 1],
+            'max_depth': [3, 4, 5, 6, 7],
             # Add other parameters as needed
         }
 

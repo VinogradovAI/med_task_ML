@@ -26,6 +26,8 @@ from plots.confusion_matrix import plot_confusion_matrix
 from plots.roc_curve import plot_roc_curve
 from plots.precision_recall_curve import plot_precision_recall_curve
 
+from plots.interpretation_plots import feature_importance
+
 from scipy.stats import chi2_contingency
 
 # Load the data
@@ -137,6 +139,9 @@ for name, model in models.items():
     # Train the model
     print(f"Training {name}...")
     model.train(X_train, y_train)
+    # Display the feature importances
+    print(f"Displaying feature importances for {name}...")
+    feature_importance(name, model.model, df.drop("target", axis=1).columns)
     # Predict the target variable
     y_pred = model.predict(X_test)
     # Evaluate the model
